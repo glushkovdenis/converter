@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .select-container{
+            display:flex
+        }
+    </style>
+</head>
+<body>
+    <h1>Конвертер</h1>
+
+    <div class="select-container">
+        <div>
+            <h3>Исходная валюта</h3>
+            <select id="sourceValute" name="sourceValute" size="5">
+                <option value="AUD">AUD (Австралийский доллар)</option>
+                <option value="AZN">AZN (Азербайджанский манат)</option>
+                <option value="GBP">GBP (Фунт стерлингов Соединенного королевства)</option>
+                <option value="AMD">AMD (Армянских драмов)</option>
+                <option value="BYN">BYN (Белорусский рубль)</option>
+                <option value="BGN">BGN (Болгарский лев)</option>
+                <option value="BRL">BRL (Бразильский реал)</option>
+                <option value="HUF">HUF (Венгерских форинтов)</option>
+                <option value="HKD">HKD (Гонконгских долларов)</option>
+                <option value="DKK">DKK (Датская крона)</option>
+                <option value="USD">USD (Доллар США)</option>
+                <option value="EUR">EUR (Евро)</option>
+                <option value="INR">INR (Индийских рупий)</option>
+                <option value="KZT">KZT (Казахстанских тенге)</option>
+                <option value="CAD">CAD (Канадский доллар)</option>
+                <option value="KGS">KGS (Киргизских сомов)</option>
+                <option value="CNY">CNY (Китайский юань)</option>
+                <option value="MDL">MDL (Молдавских леев)</option>
+                <option value="NOK">NOK (Норвежских крон)</option>
+                <option value="PLN">PLN (Польский злотый)</option>
+                <option value="RON">RON (Румынский лей)</option>
+                <option value="RUB">RUB (Русский рубль)</option>
+                <option value="XDR">XDR (СДР (специальные права заимствования))</option>
+                <option value="SGD">SGD (Сингапурский доллар)</option>
+                <option value="TJS">TJS (Таджикских сомони)</option>
+                <option value="TRY">TRY (Турецкая лира)</option>
+                <option value="TMT">TMT (Новый туркменский манат)</option>
+                <option value="UZS">UZS (Узбекских сумов)</option>
+                <option value="UAH">UAH (Украинских гривен)</option>
+                <option value="CZK">CZK (Чешских крон)</option>
+                <option value="SEK">SEK (Шведских крон)</option>
+                <option value="CHF">CHF (Швейцарский франк)</option>
+                <option value="ZAR">ZAR (Южноафриканских рэндов)</option>
+                <option value="KRW">KRW (Вон Республики Корея)</option>
+                <option value="JPY">JPY (Японских иен)</option>
+            </select>
+        </div>
+        <div>
+            <h3>Целевая валюта</h3>
+            <select id="destinationValute" name="destinationValute" size="5">
+                <option value="AUD">AUD (Австралийский доллар)</option>
+                <option value="AZN">AZN (Азербайджанский манат)</option>
+                <option value="GBP">GBP (Фунт стерлингов Соединенного королевства)</option>
+                <option value="AMD">AMD (Армянских драмов)</option>
+                <option value="BYN">BYN (Белорусский рубль)</option>
+                <option value="BGN">BGN (Болгарский лев)</option>
+                <option value="BRL">BRL (Бразильский реал)</option>
+                <option value="HUF">HUF (Венгерских форинтов)</option>
+                <option value="HKD">HKD (Гонконгских долларов)</option>
+                <option value="DKK">DKK (Датская крона)</option>
+                <option value="USD">USD (Доллар США)</option>
+                <option value="EUR">EUR (Евро)</option>
+                <option value="INR">INR (Индийских рупий)</option>
+                <option value="KZT">KZT (Казахстанских тенге)</option>
+                <option value="CAD">CAD (Канадский доллар)</option>
+                <option value="KGS">KGS (Киргизских сомов)</option>
+                <option value="CNY">CNY (Китайский юань)</option>
+                <option value="MDL">MDL (Молдавских леев)</option>
+                <option value="NOK">NOK (Норвежских крон)</option>
+                <option value="PLN">PLN (Польский злотый)</option>
+                <option value="RON">RON (Румынский лей)</option>
+                <option value="RUB">RUB (Русский рубль)</option>
+                <option value="XDR">XDR (СДР (специальные права заимствования))</option>
+                <option value="SGD">SGD (Сингапурский доллар)</option>
+                <option value="TJS">TJS (Таджикских сомони)</option>
+                <option value="TRY">TRY (Турецкая лира)</option>
+                <option value="TMT">TMT (Новый туркменский манат)</option>
+                <option value="UZS">UZS (Узбекских сумов)</option>
+                <option value="UAH">UAH (Украинских гривен)</option>
+                <option value="CZK">CZK (Чешских крон)</option>
+                <option value="SEK">SEK (Шведских крон)</option>
+                <option value="CHF">CHF (Швейцарский франк)</option>
+                <option value="ZAR">ZAR (Южноафриканских рэндов)</option>
+                <option value="KRW">KRW (Вон Республики Корея)</option>
+                <option value="JPY">JPY (Японских иен)</option>
+            </select>
+        </div>
+    </div>
+
+    <label for="amount">Пересчитать:</label>
+    <input type="number" id="amount" name="amount">
+
+    <button id="calculate" style="margin-top:10px">Конвертировать</button>
+
+    <div style="margin-top:10px">
+        <a href="/history">История конвертаций</a>
+    </div>
+
+    <div style="margin-top:10px">
+        <a href="/perform_logout">Выйти</a>
+    </div>
+
+    <script>
+        const url = "/valute";
+
+        document.addEventListener("DOMContentLoaded", ()=>{
+            function getValues() {
+                const sourceValute = document.getElementById('sourceValute').value;
+                const destinationValute = document.getElementById('destinationValute').value;
+                const amount = document.getElementById('amount').value;
+                if (null == amount) {
+                    amount = 0;
+                }
+                return {
+                    sourceValute, destinationValute, amount
+                };
+            }
+
+            function getConvert() {
+                const {amount, sourceValute, destinationValute} = getValues();
+                window.location.assign(`${url}?firstValute=${sourceValute}&secondValute=${destinationValute}&amount=${amount}`);
+            }
+
+            document.querySelector('#calculate').addEventListener('click', function(){
+                getConvert();
+            });
+
+        });
+
+
+
+
+    </script>
+</body>
+</html>

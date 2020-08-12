@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>История</title>
+</head>
+<body>
+
+    <h1>История конвертаций</h1>
+
+    <div style="margin-top:10px">
+        <a href="/convert">Назад</a>
+    </div>
+
+    <div style="margin-top:10px">
+        <table border="3">
+            <tr>
+                <th>Исходная валюта</th>
+                <th>Получаемая валюта</th>
+                <th>Исходная сумма</th>
+                <th>Получаемая сумма</th>
+                <th>Дата</th>
+            </tr>
+            <tbody>
+            <tr th:each="HistoryTransactionMapper: ${array}">
+                <div>
+                    <td th:text="${HistoryTransactionMapper.sourceValute}"></td>
+                    <td th:text="${HistoryTransactionMapper.targetValute}"></td>
+                    <td th:text="${HistoryTransactionMapper.originalAmount}"></td>
+                    <td th:text="${HistoryTransactionMapper.receivedAmount}"></td>
+                    <td th:text="${HistoryTransactionMapper.date}"></td>
+                </div>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
